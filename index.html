@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title of the document</title>
+</head>
+<script>
+
+let userScore=0;
+let computerScore=0;
+let 
+
+function computerPlay() {
+  const choices = ['rock', 'paper', 'scissors'];
+  const randomNumber = Math.floor(Math.random() * 3);
+  return choices[randomNumber];
+  }
+function playRound(playerSelection, computerSelection) {
+    switch (playerSelection + computerSelection) {
+        case 'rockscissors':
+      return 'You win, rock beats scissors!'
+        win();
+        break  
+        case 'scissorspaper':
+      return 'You win, scissors beats paper!' 
+        win();
+        break
+        case 'paperrock':
+      return 'You win, paper beats rock!'
+        win();
+        break  
+        case 'scissorsrock':
+      return 'You lose, rock beats scissors'
+        lose()
+        break
+        case 'paperscissors':
+      return 'you lose, scissors beats paper'
+        lose()
+        break
+        case 'rockpaper':
+      return 'you lose, paper beats rock'
+        lose()
+        break
+        case 'paperpaper':
+      return 'its a tie!, paper equals paper'
+        draw()
+        break
+        case 'rockrock':
+      return 'its a tie!, rock equals rock'
+        draw()
+        break
+        case 'scissorsscissors':
+      return 'its a tie, scissors equals scissors'  
+        draw() 
+        break;
+    }
+
+}
+let promptInput("rock, paper, scissors?")
+
+function caseInsensitive(playerMixedString) {
+    return playerMixedString.toLowerCase();
+}
+let playerSelection = caseInsensitive(("ScissOrs"));
+const computerSelection = computerPlay()
+console.log(computerSelection)
+console.log(playerSelection)
+console.log(playRound(playerSelection, computerSelection))
+
+
+
+
+
+
+
+</script>
+<body>
+
+</body>
+
+</html>
