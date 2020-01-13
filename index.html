@@ -3,86 +3,19 @@
 <head>
 <title>Title of the document</title>
 </head>
-<script>
-
-let userScore = 0;
-let computerScore = 0;
-let playerSelection ;
-const promptInput = ("rock, paper, scissors?");
-const choices = ['rock', 'paper', 'scissors'];
-const computerSelection = computerPlay()
-
-
-function computerPlay() {
-    const randomNumber = Math.floor(Math.random() * 3);
-  return choices[randomNumber]; }
-
-function caseInsensitive(playerMixedString) {
-    return playerMixedString.toLowerCase();}
-
-function game() {
-  for (let i = 0; i < 5; i++) {
-  playerSelection = caseInsensitive(prompt(promptInput));
-  playRound(playerSelection, computerSelection)
-  console.log( userScore +' - ' + computerScore )
-      }
-      if (userScore == computerScore)
-      console.log('Its a draw')
-      else if (userScore > computerScore)
-      console.log('You win!')
-      else console.log('Computer wins!')
-   }
-
-
-function playRound(playerSelection, computerSelection) {
-    switch (playerSelection + computerSelection) {
-        case 'rockscissors':
-        console.log('You win, ' + playerSelection + ' beats ' + computerSelection)
-        userScore++; 
-        return 'You win, rock beats scissors!'
-        break  
-        case 'scissorspaper':
-        console.log('You win, ' + playerSelection + ' beats ' + computerSelection)
-        userScore++; 
-        return 'You win, scissors beats paper!' 
-        break
-        case 'paperrock':
-        console.log('You win, ' + playerSelection + ' beats ' + computerSelection)
-        userScore++; 
-       return 'You win, paper beats rock!'
-        break  
-        case 'scissorsrock':
-        console.log('You lose, ' + computerSelection + ' beats ' + playerSelection) 
-        computerScore++;
-        return 'You lose, rock beats scissors'
-        break
-        case 'paperscissors':
-        console.log('You lose, ' + computerSelection + ' beats ' + playerSelection)
-        computerScore++; 
-      return 'you lose, scissors beats paper'
-        break
-        case 'rockpaper':
-        console.log('You lose, ' + computerSelection + ' beats ' + playerSelection)
-        computerScore++; 
-      return 'you lose, paper beats rock'
-        break
-        case 'paperpaper':
-        case 'rockrock':
-        case 'scissorsscissors':
-        console.log('Its a tie, both players picked ' + computerSelection)
-        break;
-      }
-    }
-//console.log(computerSelection)
-game();
-//console.log(playerSelection)
-//console.log(playRound(playerSelection, computerSelection))
-console.log(userScore)
-console.log(computerScore)
-
-</script>
 <body>
-
-</body>
-
+  <div id="container">
+    <button id="rockbutton">Rock</button>
+    <button id="paperbutton">Paper</button>
+    <button id="scissorsbutton">Scissors</button>
+  </div>
+   <div id='roundresult'>
+     The round result is
+   </div>
+ <div id='scoreboard'>
+  <div id = 'userscore'>0</div> <div id = 'computerscore'>0</div>
+  
+</div>
+      <script src="app.js"></script>
+      </body>
 </html>
