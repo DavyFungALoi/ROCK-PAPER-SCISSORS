@@ -5,72 +5,80 @@
 </head>
 <script>
 
-let userScore=0;
-let computerScore=0;
-let 
+let userScore = 0;
+let computerScore = 0;
+let playerSelection ;
+const promptInput = ("rock, paper, scissors?");
+const choices = ['rock', 'paper', 'scissors'];
+const computerSelection = computerPlay()
+
 
 function computerPlay() {
-  const choices = ['rock', 'paper', 'scissors'];
-  const randomNumber = Math.floor(Math.random() * 3);
-  return choices[randomNumber];
-  }
+    const randomNumber = Math.floor(Math.random() * 3);
+  return choices[randomNumber]; }
+
+function caseInsensitive(playerMixedString) {
+    return playerMixedString.toLowerCase();}
+
+function game() {
+  for (let i = 0; i < 5; i++) {
+  playerSelection = caseInsensitive(prompt(promptInput));
+  playRound(playerSelection, computerSelection)
+  console.log( userScore +' - ' + computerScore )
+      }
+      if (userScore == computerScore)
+      console.log('Its a draw')
+      else if (userScore > computerScore)
+      console.log('You win!')
+      else console.log('Computer wins!')
+   }
+
+
 function playRound(playerSelection, computerSelection) {
     switch (playerSelection + computerSelection) {
         case 'rockscissors':
-      return 'You win, rock beats scissors!'
-        win();
+        console.log('You win, ' + playerSelection + ' beats ' + computerSelection)
+        userScore++; 
+        return 'You win, rock beats scissors!'
         break  
         case 'scissorspaper':
-      return 'You win, scissors beats paper!' 
-        win();
+        console.log('You win, ' + playerSelection + ' beats ' + computerSelection)
+        userScore++; 
+        return 'You win, scissors beats paper!' 
         break
         case 'paperrock':
-      return 'You win, paper beats rock!'
-        win();
+        console.log('You win, ' + playerSelection + ' beats ' + computerSelection)
+        userScore++; 
+       return 'You win, paper beats rock!'
         break  
         case 'scissorsrock':
-      return 'You lose, rock beats scissors'
-        lose()
+        console.log('You lose, ' + computerSelection + ' beats ' + playerSelection) 
+        computerScore++;
+        return 'You lose, rock beats scissors'
         break
         case 'paperscissors':
+        console.log('You lose, ' + computerSelection + ' beats ' + playerSelection)
+        computerScore++; 
       return 'you lose, scissors beats paper'
-        lose()
         break
         case 'rockpaper':
+        console.log('You lose, ' + computerSelection + ' beats ' + playerSelection)
+        computerScore++; 
       return 'you lose, paper beats rock'
-        lose()
         break
         case 'paperpaper':
-      return 'its a tie!, paper equals paper'
-        draw()
-        break
         case 'rockrock':
-      return 'its a tie!, rock equals rock'
-        draw()
-        break
         case 'scissorsscissors':
-      return 'its a tie, scissors equals scissors'  
-        draw() 
+        console.log('Its a tie, both players picked ' + computerSelection)
         break;
+      }
     }
-
-}
-let promptInput("rock, paper, scissors?")
-
-function caseInsensitive(playerMixedString) {
-    return playerMixedString.toLowerCase();
-}
-let playerSelection = caseInsensitive(("ScissOrs"));
-const computerSelection = computerPlay()
-console.log(computerSelection)
-console.log(playerSelection)
-console.log(playRound(playerSelection, computerSelection))
-
-
-
-
-
-
+//console.log(computerSelection)
+game();
+//console.log(playerSelection)
+//console.log(playRound(playerSelection, computerSelection))
+console.log(userScore)
+console.log(computerScore)
 
 </script>
 <body>
